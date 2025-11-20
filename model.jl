@@ -59,7 +59,7 @@ function city_from_row(row)
         Float64(row.transport_co2_perhousehold),
         Float64(row.ev_percentage),
         Float64(row.solar_percentage),
-        Int(row.aqi),
+        Int(row.aqi)
     )
 end
 
@@ -74,7 +74,11 @@ end
 
 function estimate_emission(city::City, ev::Float64, solar::Float64, grid::Float64)
     elec = city.avgelectricity_kwh * grid * city.households * 365 / 1000
-    trans = city.transport_co2_perhousehold * city.households * 365 / 1000
+    
+    ev_reduction = 1 - (ev / 100 * 0.40)
+
+    trans = city.transport_co2_perhousehold * ev_reduction * city.households * 365 / 1000
+
     total = elec + trans
     reduction_factor = (solar * 0.6 + ev * 0.4) / 100
     optimized = total * (1 - reduction_factor)
@@ -137,6 +141,6 @@ function adjust_city_with_household(city::City, hh)
         new_transport,
         city.ev_percentage,
         city.solar_percentage,
-        city.aqi,
+        city.aqi
     )
 end
