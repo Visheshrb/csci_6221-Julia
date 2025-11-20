@@ -1,0 +1,6 @@
+City,Households,AvgElectricity_kWh,Grid_CO2_per_kWh,Transport_CO2_perHousehold,EV_Percentage,Solar_Percentage,AQI
+Chennai,10000,350,0.82,180,15,20,82
+Mumbai,12000,400,0.91,220,10,15,102
+Delhi,15000,420,0.95,250,8,10,115
+Bangalore,11000,370,0.78,190,18,22,78
+Kolkata,9000,360,0.8,200,12,18,88
