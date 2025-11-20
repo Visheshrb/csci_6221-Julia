@@ -1,8 +1,5 @@
 README – How to Run main.jl
 
-Install Julia 1.9+ from https://julialang.org/downloads/
-
-
 Open Julia and install packages using:
 using Pkg; Pkg.add(["CSV","DataFrames","Plots","Dash","PlotlyJS","Statistics","FilePathsBase","Dates"])
 
